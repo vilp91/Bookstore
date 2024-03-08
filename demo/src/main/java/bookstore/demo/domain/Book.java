@@ -1,9 +1,13 @@
 package bookstore.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Book {
@@ -16,11 +20,14 @@ public class Book {
     private String isbn;
     private String price;
 
+    @ManyToOne
+    @JsonIgnore
+    @JoinColumn(name = "categoryid")
+    private Category category;
+
     public Book() {
         
     }
-
-
 
     public Book(String author, String title, String publicationYear, String isbn, String price) {
         
@@ -30,7 +37,13 @@ public class Book {
         this.isbn = isbn;
         this.price = price;
     }
-    
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     public void setId(Long id) {
         this.id = id;
     }

@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import bookstore.demo.domain.Book;
 import bookstore.demo.domain.BookRepository;
 
-
-
-
-
 @Controller
 public class BookController {
     private final BookRepository bookRepository;
