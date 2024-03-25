@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Books</h1>
+    <h3>Hello <span sec:authentication="name"></span>!</h3>
     <table class="table table-striped">
         <tr>
             <th>Author</th>
@@ -27,5 +28,9 @@
         </tr>
     </table>
     <a href="/add" class="btn btn-primary btn btn-success" >Add Book</a>
+    
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
 </body>
 </html>
